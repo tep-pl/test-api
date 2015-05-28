@@ -9,8 +9,6 @@ class User
 
   # model properties
   field :userId,                type: String
-  field :firstName,             type: String
-  field :lastName,              type: String
   field :authentication_token,	type: String
 
   def email_required?

@@ -29,7 +29,7 @@ module Api
                 sign_up(resource_name, resource)
                 user = User.find_by(userId: auth_params[:userId])
 
-                render json: { accessToken: user.authentication_token, firstName: user.firstName, lastName: user.lastName, roles: [0,1]}, status: :created
+                render json: { accessToken: user.authentication_token, firstName: "John", lastName: "Doe", roles: [0,1]}, status: :created
               else
                 render json: { cause: "User's account inactive" }, status: :forbidden
               end
@@ -46,7 +46,7 @@ module Api
 
         private
           def auth_params
-            params.permit(:userId, :accessToken, :password)
+            params.permit(:userId, :accessToken)
           end
       end
     end
